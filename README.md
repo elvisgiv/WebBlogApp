@@ -1,6 +1,6 @@
 # Blog Web Application
 
-## What done:
+## Features:
 
  - sign up/sign in using gem 'devise';
  - ability of create/update/delete posts;
