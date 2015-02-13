@@ -3,12 +3,12 @@
 ruby "2.0.0"
 
 gem 'rails', '4.1.8'
-
+gem 'will_paginate', '~> 3.0.5'
 gem 'mysql2', '0.3.17'
 
 # Use Devise for user authentication
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => '49aebde'
-
+gem 'ancestry'
 #
 gem 'haml-rails', '~>0.6.0'
 

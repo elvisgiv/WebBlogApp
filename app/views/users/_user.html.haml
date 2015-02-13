@@ -1,0 +1,20 @@
+-if current_user.id == @user.id
+  %h1
+    My Page
+-else
+  %h1
+    Another user page
+%ul
+  = link_to 'Create post', new_user_post_path(@user), {:class=>"btn btn-default"} if current_user.id == @user.id
+  -if @user.posts.any?
+    %h4 Posts:
+    -@posts.each do |post|
+
+      %br
+      = link_to post.description, user_post_path(@user, post)
+      Posted #{time_ago_in_words(post.created_at)} ago.
+      = link_to 'Destroy', user_post_path(@user, post), :method => :delete, :data => { :confirm => 'Are you sure?' } if current_user.id == @user.id
+      
+  -else
+    %h3 no posts
+

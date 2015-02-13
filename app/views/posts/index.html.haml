@@ -1,0 +1,11 @@
+%h1 Listing posts
+
+
+= will_paginate @posts
+%ul      
+  - @posts.each do |post|
+    %br
+    = link_to post.description, user_post_path(current_user, post)
+    = post.created_at
+    = link_to post.user.email, user_path(post)
+= will_paginate @posts

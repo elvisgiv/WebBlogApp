@@ -1,0 +1,11 @@
+.col-md-8
+  -#= horizontal_simple_form_for @user do |f|
+  = simple_form_for(@post,:url => {:action => "index"}, html: { class: 'form-horizontal' }) do |f|
+    = f.error_notification
+    .form-inputs
+    = f.input :description, label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'}
+    = f.input :user_id, as: :hidden
+
+    .form-actions
+    = f.button :submit
+    = link_to 'Back', user_path(current_user), {:class=>"btn btn-default"}

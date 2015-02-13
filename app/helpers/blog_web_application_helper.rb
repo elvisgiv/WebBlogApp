@@ -1,0 +1,2 @@
+module BlogWebApplicationHelper
+end

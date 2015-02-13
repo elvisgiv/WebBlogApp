@@ -1,0 +1,5 @@
+%h3
+= @comment.content
+
+
+= link_to 'Comment', new_user_post_comment_path(current_user, @post), {:class=>"btn btn-default"}

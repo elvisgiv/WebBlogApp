@@ -1,0 +1,7 @@
+%h3
+  = @post.description
+
+%ul
+  = render @comment
+= link_to 'Add comment', new_user_post_comment_path(@post.user_id, @post), {:class=>"btn btn-default"}
+= link_to 'Back', user_path(current_user), {:class=>"btn btn-default"}

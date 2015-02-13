@@ -1,0 +1,26 @@
+!!! Strict
+%html
+  %head
+    %title= full_title(yield(:title))
+    %meta{:name => "description", :content => h(yield(:meta_desc) || "")}
+    %meta{:name => "keywords", :content => h(yield(:meta_keywords) || "")}
+
+    = csrf_meta_tag
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag :application
+
+    = yield(:head)
+
+
+  %body
+    #wrap
+      = render 'shared/top'
+
+      .container.container-main
+        = render 'shared/flash'
+
+        = yield(:page_header)
+
+        = content_for?(:content) ? yield(:content) : yield
+
+    = render 'shared/footer'
