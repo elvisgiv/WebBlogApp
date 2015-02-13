@@ -1,17 +1,17 @@
 # Blog Web Application
 
-## Что есть:
+## What done:
 
- 1. регистрация/вход с применением гема Devise;
- 2. возможность создания/обновления/удаления постов;
- 3. просмотр всех пльзователей;
- 4. просмотр постов выбраного пользователя;
- 5. комментирование любого поста любого пользователя;
- 6. комментирование любого комментария любого пользователя;
- 7. возможность удаления поста его автором;
- 8. возможность удаления комментария его автором или автором поста;
- 9. пагинация с помощью гема Will_paginate;
-10. создание базы пользователей и их постов с помощью гема Faker;
-11. отправка писем при созднии поста с помощью гема Action Mailer;
-12. установка гема Ancestry для создания дерева комментариев.
-13. тесты модели с помощью гемов 'factory_girl_rails', 'rspec-rails', 'facker'.
+ - sign up/sign in using gem 'devise';
+ - ability of create/update/delete posts;
+ - view all users;
+ - view all posts select user;
+ - ability of adding comments at any posts of any user;
+ - ability of adding comments at any comment of any user;
+ - ability of deleting the post by his author;
+ - ability of deleting the comment by his author or by post author;
+ - create a paginate using gem 'will_paginate';
+ - crate a DB users and their posts using gem 'faker';
+ - sending message when the post will be creating using gem 'action_mailer';
+ - use gem 'ancestry' to create a tree of comments.
+ - models tests using gem 'factory_girl_rails', gem 'rspec-rails', gem 'facker'.
