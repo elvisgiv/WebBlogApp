@@ -1,6 +1,6 @@
 user: #{comment.user_id}
 %br
-%img{ alt: "...", :src => comment.post.user.avatar.url(:small) }
+%img{ alt: "...", :src => comment.user.avatar.url(:small) }
 %br
 created: #{comment.created_at.strftime("%B %d, %Y")}
 %br
