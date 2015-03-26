@@ -3,14 +3,14 @@ class CommentsController < ApplicationController
 
   # GET /comments
   # GET /comments.json
-  def index
-    @comments = Comment.all
-  end
+  #def index
+  #  @comments = Comment.all
+  #end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
-
+    
   end
 
   # GET /comments/new
@@ -28,6 +28,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to user_post_path(@comment.post.user_id, @comment.post_id), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
+        format.js   { }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -40,14 +41,16 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_post_path(@comment.post.user_id, @comment.post_id), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js   { render layout: false }
     end
+ 
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       #@comment = Comment.find(params[:id])
-      @comment = current_user.comments.find(params[:parent_id])
+      @comment = current_user.comments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

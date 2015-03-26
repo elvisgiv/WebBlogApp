@@ -1,7 +1,20 @@
-%h3
-  = @post.description
+%h5
+  user: #{@post.user_id}
+  %br
+  %img{alt: "...", :src => @post.user.avatar.url(:thumb)}
+  %br
+  created: #{@post.created_at.strftime("%B %d, %Y")}
+  %br
+=@post.description
+%br
+%br 
 
-%ul
-  = render @comment
-= link_to 'Add comment', new_user_post_comment_path(@post.user_id, @post), {:class=>"btn btn-default"}
-= link_to 'Back', user_path(current_user), {:class=>"btn btn-default"}
+%ul{:id => "comments"}
+  = render 'comments', comments: @post.comments
+= render 'comment_form'
+-#= link_to 'Add comment', new_user_post_comment_path(@post.user_id, @post), {:class=>"btn btn-default"}
+-#= link_to 'Back', user_path(current_user), {:class=>"btn btn-default"}
+:javascript
+  $("ul#comments").on( "ajax:success", "li a.delete", function() {
+    $(this).closest('li').hide();
+  });

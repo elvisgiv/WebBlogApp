@@ -4,16 +4,27 @@
 -else
   %h1
     Another user page
+.row
+  .col-sm-12.col-md-5.col-md-offset-3
+    .thumbnail
+      %img{alt: "...", :src => @user.avatar.url(:thumb)}/
+      .caption.center
+        %h3 #{@user.name}
+        = fa_icon "envelope"
+        = @user.email
+        %hr
 %ul
   = link_to 'Create post', new_user_post_path(@user), {:class=>"btn btn-default"} if current_user.id == @user.id
   -if @user.posts.any?
     %h4 Posts:
     -@posts.each do |post|
 
+      %li
+        = link_to post.description, user_post_path(@user, post)
       %br
-      = link_to post.description, user_post_path(@user, post)
-      Posted #{time_ago_in_words(post.created_at)} ago.
-      = link_to 'Destroy', user_post_path(@user, post), :method => :delete, :data => { :confirm => 'Are you sure?' } if current_user.id == @user.id
+        Posted #{time_ago_in_words(post.created_at)} ago.
+      %br
+        = link_to 'Destroy', user_post_path(@user, post), :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true if current_user.id == @user.id
       
   -else
     %h3 no posts

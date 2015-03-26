@@ -1,10 +1,10 @@
-
-
-%ul
-  -@post.comments.each do |comment|
-    %br
-      = comment.created_at.strftime("%B %d, %Y")
-      = comment.content
-
-      = link_to "Reply", new_user_post_comment_path(:post_id => @post, :parent_id => comment)
-      = link_to "Destroy", user_post_comment_path(:post_id => @post, :parent_id => comment), :confirm => "Are you sure?", :method => :delete if comment.user_id == current_user.id || comment.post.user_id == current_user.id
+user: #{comment.user_id}
+%br
+%img{ alt: "...", :src => comment.post.user.avatar.url(:small) }
+%br
+created: #{comment.created_at.strftime("%B %d, %Y")}
+%br
+= comment.content
+%br
+= link_to "Reply", new_user_post_comment_path(:post_id => comment.post_id, :parent_id => comment)
+= link_to "Destroy", [comment.post.user, comment.post, comment], :confirm => "Are you sure?", :method => :delete, remote: true, :class => "delete" if comment.user_id == current_user.id || comment.post.user_id == current_user.id

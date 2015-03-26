@@ -84,3 +84,7 @@ group :test do
   gem 'database_cleaner'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end

@@ -14,4 +14,8 @@
  - crate a DB users and their posts using gem 'faker';
  - sending message when the post will be creating using gem 'action_mailer';
  - use gem 'ancestry' to create a tree of comments.
- - models tests using gem 'factory_girl_rails', gem 'rspec-rails', gem 'facker'.
+ - models tests using gem 'factory_girl_rails', gem 'rspec-rails', gem 'facker';
+
+ - create and delete comments with AJAX;
+ - ability of adding images on user avatar and its display in posts and comments. Using gem 'paperclip'.
+

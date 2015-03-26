@@ -1,0 +1,12 @@
+.col-md-8
+  = simple_form_for([@post.user, @post, @comment], html: { class: 'form-horizontal' }, remote: true) do |f|
+    = f.error_notification
+
+    
+    = f.input :content, label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'}
+    = f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }
+    = f.input :post_id, :as => :hidden, :input_html => { :value => @post_id }
+    -#= f.input :ancestry, :as => :hidden, :input_html => {:value => params[:parent_id]}
+    
+    = f.button :submit
+    = link_to 'Back', user_path(current_user), {:class=>"btn btn-default"}
