@@ -1,5 +1,5 @@
 %h5
-  user: #{@post.user_id}
+  user: #{@post.user.name}
   %br
   %img{alt: "...", :src => @post.user.avatar.url(:thumb)}
   %br
